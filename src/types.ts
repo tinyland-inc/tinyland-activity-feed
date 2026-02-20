@@ -1,5 +1,5 @@
 /**
- * Type definitions for @tinyland-inc/tinyland-activity-feed
+ * Type definitions for @tummycrypt/tinyland-activity-feed
  *
  * These are framework-agnostic types for the unified activity feed.
  * Input types (BlogPostItem, ProfileItem, ProductItem) support flexible

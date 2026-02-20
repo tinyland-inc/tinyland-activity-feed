@@ -1,5 +1,5 @@
 /**
- * Configuration module for @tinyland-inc/tinyland-activity-feed
+ * Configuration module for @tummycrypt/tinyland-activity-feed
  *
  * Provides dependency injection for content-loading functions so the
  * package stays framework-agnostic. Consumers wire in their own

@@ -1,5 +1,5 @@
 /**
- * Vitest Configuration for @tinyland-inc/tinyland-activity-feed
+ * Vitest Configuration for @tummycrypt/tinyland-activity-feed
  *
  * Works in three modes:
  *   1. Standalone:  cd packages/tinyland-activity-feed && pnpm test

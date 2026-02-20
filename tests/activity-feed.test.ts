@@ -1,5 +1,5 @@
 /**
- * Tests for @tinyland-inc/tinyland-activity-feed
+ * Tests for @tummycrypt/tinyland-activity-feed
  *
  * Comprehensive test suite covering DI config, all feed functions,
  * edge cases, and error handling. All content is supplied via mock

@@ -1,5 +1,5 @@
 {
-  "name": "@tinyland-inc/tinyland-activity-feed",
+  "name": "@tummycrypt/tinyland-activity-feed",
   "version": "0.1.0",
   "description": "Unified activity feed aggregation with filtering, search, and sorting",
   "type": "module",
@@ -42,5 +42,9 @@
   },
   "engines": {
     "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

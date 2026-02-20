@@ -1,5 +1,5 @@
 /**
- * @tinyland-inc/tinyland-activity-feed
+ * @tummycrypt/tinyland-activity-feed
  *
  * Framework-agnostic unified activity feed aggregation with filtering,
  * search, and sorting. Content loading is injected via configure()
@@ -11,7 +11,7 @@
  *   configure,
  *   getRecentActivityServer,
  *   searchActivityServer,
- * } from '@tinyland-inc/tinyland-activity-feed';
+ * } from '@tummycrypt/tinyland-activity-feed';
  *
  * configure({
  *   loadBlogPosts: () => myBlogPosts,
