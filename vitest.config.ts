@@ -1,11 +1,11 @@
-/**
- * Vitest Configuration for @tummycrypt/tinyland-activity-feed
- *
- * Works in three modes:
- *   1. Standalone:  cd packages/tinyland-activity-feed && pnpm test
- *   2. Workspace:   vitest run --project=tinyland-activity-feed (from root)
- *   3. Bazel:       bazel test //packages/tinyland-activity-feed:test
- */
+
+
+
+
+
+
+
+
 
 import { defineConfig } from 'vitest/config';
 import { fileURLToPath } from 'node:url';
