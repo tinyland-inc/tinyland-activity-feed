@@ -1,10 +1,10 @@
-/**
- * Tests for @tummycrypt/tinyland-activity-feed
- *
- * Comprehensive test suite covering DI config, all feed functions,
- * edge cases, and error handling. All content is supplied via mock
- * loaders -- no file system mocking needed.
- */
+
+
+
+
+
+
+
 
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
@@ -24,9 +24,9 @@ import type {
   ActivityFeedConfig,
 } from '../src/index.js';
 
-// ---------------------------------------------------------------------------
-// Mock data factories
-// ---------------------------------------------------------------------------
+
+
+
 
 function makeBlogPost(overrides: Partial<BlogPostItem> = {}): BlogPostItem {
   return {
@@ -66,17 +66,17 @@ function makeProduct(overrides: Partial<ProductItem> = {}): ProductItem {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Setup
-// ---------------------------------------------------------------------------
+
+
+
 
 beforeEach(() => {
   resetConfig();
 });
 
-// ===========================================================================
-// 1. Configuration DI (~10 tests)
-// ===========================================================================
+
+
+
 
 describe('Configuration DI', () => {
   it('should return empty config by default', () => {
@@ -156,9 +156,9 @@ describe('Configuration DI', () => {
   });
 });
 
-// ===========================================================================
-// 2. getRecentActivityServer (~25 tests)
-// ===========================================================================
+
+
+
 
 describe('getRecentActivityServer', () => {
   it('should return empty array with no loaders configured', () => {
@@ -455,9 +455,9 @@ describe('getRecentActivityServer', () => {
   });
 });
 
-// ===========================================================================
-// 3. getActivityByTypeServer (~15 tests)
-// ===========================================================================
+
+
+
 
 describe('getActivityByTypeServer', () => {
   const allConfig: ActivityFeedConfig = {
@@ -591,9 +591,9 @@ describe('getActivityByTypeServer', () => {
   });
 });
 
-// ===========================================================================
-// 4. getActivityByCategoryServer (~12 tests)
-// ===========================================================================
+
+
+
 
 describe('getActivityByCategoryServer', () => {
   it('should match items by category', () => {
@@ -713,9 +713,9 @@ describe('getActivityByCategoryServer', () => {
   });
 });
 
-// ===========================================================================
-// 5. getActivityByTagServer (~12 tests)
-// ===========================================================================
+
+
+
 
 describe('getActivityByTagServer', () => {
   it('should match items that have the tag', () => {
@@ -834,9 +834,9 @@ describe('getActivityByTagServer', () => {
   });
 });
 
-// ===========================================================================
-// 6. searchActivityServer (~20 tests)
-// ===========================================================================
+
+
+
 
 describe('searchActivityServer', () => {
   it('should search by title', () => {
@@ -1046,9 +1046,9 @@ describe('searchActivityServer', () => {
   });
 });
 
-// ===========================================================================
-// 7. Edge cases (~16 tests)
-// ===========================================================================
+
+
+
 
 describe('Edge cases', () => {
   it('should handle blog post with missing excerpt and description', () => {
