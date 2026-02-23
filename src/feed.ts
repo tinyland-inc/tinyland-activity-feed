@@ -1,10 +1,10 @@
-/**
- * Activity feed aggregation, filtering, and search functions.
- *
- * All functions load content via DI-injected loaders from config,
- * normalize items into ActivityItem shape, and apply filtering/sorting.
- * Loaders that throw are caught and skipped gracefully.
- */
+
+
+
+
+
+
+
 
 import { getConfig } from './config.js';
 import type {
@@ -14,11 +14,11 @@ import type {
   ProductItem,
 } from './types.js';
 
-/**
- * Convert a BlogPostItem into a normalized ActivityItem.
- */
+
+
+
 function blogPostToActivity(post: BlogPostItem): ActivityItem | null {
-  // Filter out unpublished/draft posts
+  
   if (post.published === false || post.draft === true) {
     return null;
   }
@@ -44,9 +44,9 @@ function blogPostToActivity(post: BlogPostItem): ActivityItem | null {
   };
 }
 
-/**
- * Convert a ProfileItem into a normalized ActivityItem.
- */
+
+
+
 function profileToActivity(profile: ProfileItem): ActivityItem {
   const date =
     profile.publishedAt ||
@@ -71,9 +71,9 @@ function profileToActivity(profile: ProfileItem): ActivityItem {
   };
 }
 
-/**
- * Convert a ProductItem into a normalized ActivityItem.
- */
+
+
+
 function productToActivity(product: ProductItem): ActivityItem {
   const date =
     product.publishedAt ||
@@ -94,15 +94,15 @@ function productToActivity(product: ProductItem): ActivityItem {
   };
 }
 
-/**
- * Load and aggregate all activity items from configured loaders.
- * Sorts by date descending (most recent first).
- */
+
+
+
+
 function loadAllActivity(): ActivityItem[] {
   const config = getConfig();
   const activities: ActivityItem[] = [];
 
-  // Load blog posts
+  
   if (config.loadBlogPosts) {
     try {
       const posts = config.loadBlogPosts();
@@ -113,11 +113,11 @@ function loadAllActivity(): ActivityItem[] {
         }
       }
     } catch {
-      // Loader threw -- degrade gracefully
+      
     }
   }
 
-  // Load profiles
+  
   if (config.loadProfiles) {
     try {
       const profiles = config.loadProfiles();
@@ -125,11 +125,11 @@ function loadAllActivity(): ActivityItem[] {
         activities.push(profileToActivity(profile));
       }
     } catch {
-      // Loader threw -- degrade gracefully
+      
     }
   }
 
-  // Load products
+  
   if (config.loadProducts) {
     try {
       const products = config.loadProducts();
@@ -137,11 +137,11 @@ function loadAllActivity(): ActivityItem[] {
         activities.push(productToActivity(product));
       }
     } catch {
-      // Loader threw -- degrade gracefully
+      
     }
   }
 
-  // Sort by date descending (most recent first)
+  
   activities.sort((a, b) => {
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
@@ -151,23 +151,23 @@ function loadAllActivity(): ActivityItem[] {
   return activities;
 }
 
-/**
- * Get recent activity from blog posts, profiles, and products.
- * Returns a unified feed sorted by date (most recent first).
- *
- * @param limit - Maximum number of items to return (default: 10)
- */
+
+
+
+
+
+
 export function getRecentActivityServer(limit: number = 10): ActivityItem[] {
   const activities = loadAllActivity();
   return activities.slice(0, limit);
 }
 
-/**
- * Get activity filtered by content type.
- *
- * @param type - The content type to filter by
- * @param limit - Maximum number of items to return (optional)
- */
+
+
+
+
+
+
 export function getActivityByTypeServer(
   type: 'post' | 'profile' | 'product',
   limit?: number,
@@ -177,13 +177,13 @@ export function getActivityByTypeServer(
   return limit !== undefined ? filtered.slice(0, limit) : filtered;
 }
 
-/**
- * Get activity filtered by category.
- * Matches both the general category and productCategory fields.
- *
- * @param category - The category to filter by
- * @param limit - Maximum number of items to return (optional)
- */
+
+
+
+
+
+
+
 export function getActivityByCategoryServer(
   category: string,
   limit?: number,
@@ -195,12 +195,12 @@ export function getActivityByCategoryServer(
   return limit !== undefined ? filtered.slice(0, limit) : filtered;
 }
 
-/**
- * Get activity filtered by tag.
- *
- * @param tag - The tag to filter by
- * @param limit - Maximum number of items to return (optional)
- */
+
+
+
+
+
+
 export function getActivityByTagServer(
   tag: string,
   limit?: number,
@@ -210,13 +210,13 @@ export function getActivityByTagServer(
   return limit !== undefined ? filtered.slice(0, limit) : filtered;
 }
 
-/**
- * Search activity items by text query.
- * Searches title, excerpt, author, and tags (case-insensitive).
- *
- * @param query - The search query string
- * @param limit - Maximum number of items to return (optional)
- */
+
+
+
+
+
+
+
 export function searchActivityServer(
   query: string,
   limit?: number,
